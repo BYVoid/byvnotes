@@ -1,0 +1,26 @@
+{{set . "title" "Settings"}}
+{{template "header.html" .}}
+
+<h1>Login</h1>
+
+<form action="{{url "Application.DoLogin"}}" method="POST">
+{{with $field := field "username" .}}
+<p class="{{$field.ErrorClass}}">
+    <strong>Username:</strong>
+    <input type="text" name="{{$field.Name}}" size="16" value="{{$field.Flash}}"> *
+    <span class="error">{{$field.Error}}</span>
+</p>
+{{end}}
+{{with $field := field "password" .}}
+<p class="{{$field.ErrorClass}}">
+    <strong>Password:</strong> <input type="password" name="{{$field.Name}}" size="16" value="{{$field.Flash}}"> *
+    <span class="error">{{$field.Error}}</span>
+</p>
+{{end}}
+<p class="buttons">
+    <input type="submit" value="Login"> <a href="{{url "Application.Index"}}">Cancel</a>
+</p>
+</form>
+
+{{template "footer.html" .}}
+

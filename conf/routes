@@ -3,6 +3,11 @@
 # ~~~~
 
 GET     /                                       Application.Index
+GET     /login                                  Application.Login
+POST    /login                                  Application.DoLogin
+GET     /logout                                 Application.Logout
+GET     /settings                               Application.Settings
+POST    /settings                               Application.EditSettings
 
 # Ignore favicon requests
 GET     /favicon.ico                            404
